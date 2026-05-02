@@ -17,7 +17,7 @@ function Signup() {
 
   const handleSubmit = async () => {
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", form);
+      await axios.post("https://fullstack-task-manager-backend.onrender.com/api/auth/signup", form);
       alert("Signup successful");
     } catch (error) {
       alert("Error");

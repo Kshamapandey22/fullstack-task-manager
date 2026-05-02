@@ -11,7 +11,7 @@ function Dashboard() {
 
   const fetchTasks = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/tasks", {
+      const res = await axios.get("https://fullstack-task-manager-backend.onrender.com/api/tasks", {
         headers: {
           Authorization: token
         }
@@ -26,7 +26,7 @@ function Dashboard() {
   const addTask = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/tasks",
+        "https://fullstack-task-manager-backend.onrender.com/api/tasks",
         {
           title,
           description
@@ -48,7 +48,7 @@ function Dashboard() {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+      await axios.delete(`https://fullstack-task-manager-backend.onrender.com/api/tasks/${id}`, {
         headers: {
           Authorization: token
         }
