@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -9,7 +9,7 @@ function Dashboard() {
 
   const token = localStorage.getItem("token");
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/tasks", {
         headers: {
@@ -21,7 +21,7 @@ function Dashboard() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [token]);
 
   const addTask = async () => {
     try {
@@ -60,10 +60,9 @@ function Dashboard() {
     }
   };
 
-  // eslint-disable-next-line
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [fetchTasks]);
 
   return (
     <div className="container">
