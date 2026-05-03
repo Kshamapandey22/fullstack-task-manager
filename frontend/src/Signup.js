@@ -19,6 +19,7 @@ function Signup() {
     try {
       await axios.post("https://fullstack-task-manager-backend.onrender.com/api/auth/signup", form);
       alert("Signup successful");
+      window.location.href = "/login";
     } catch (error) {
       alert("Error");
     }
