@@ -34,9 +34,17 @@ function Login() {
     }
   };
 
-  return (
-    <div>
-      <h1>Login</h1>
+ return (
+  <div className="auth-container">
+    <div className="auth-box">
+      <h1>Signup</h1>
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        onChange={handleChange}
+      />
 
       <input
         type="email"
@@ -44,7 +52,6 @@ function Login() {
         placeholder="Email"
         onChange={handleChange}
       />
-      <br /><br />
 
       <input
         type="password"
@@ -52,11 +59,11 @@ function Login() {
         placeholder="Password"
         onChange={handleChange}
       />
-      <br /><br />
 
-      <button onClick={handleSubmit}>Login</button>
+      <button onClick={handleSubmit}>Signup</button>
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;

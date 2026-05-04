@@ -26,7 +26,8 @@ function Signup() {
   };
 
   return (
-    <div>
+  <div className="auth-container">
+    <div className="auth-box">
       <h1>Signup</h1>
 
       <input
@@ -35,7 +36,6 @@ function Signup() {
         placeholder="Name"
         onChange={handleChange}
       />
-      <br /><br />
 
       <input
         type="email"
@@ -43,7 +43,6 @@ function Signup() {
         placeholder="Email"
         onChange={handleChange}
       />
-      <br /><br />
 
       <input
         type="password"
@@ -51,11 +50,11 @@ function Signup() {
         placeholder="Password"
         onChange={handleChange}
       />
-      <br /><br />
 
       <button onClick={handleSubmit}>Signup</button>
     </div>
-  );
+  </div>
+);
 }
 
 export default Signup;
