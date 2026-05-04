@@ -65,9 +65,10 @@ function Dashboard() {
   }, [fetchTasks]);
 
   return (
-    <div className="container">
+  <div className="dashboard-container">
+    <div className="dashboard-box">
       <div className="top-bar">
-        <h1>Dashboard</h1>
+        <h1>Task Manager</h1>
 
         <button
           className="logout-btn"
@@ -83,36 +84,39 @@ function Dashboard() {
       <div className="form-box">
         <input
           value={title}
-          placeholder="Task title"
+          placeholder="Enter task title"
           onChange={(e) => setTitle(e.target.value)}
         />
 
         <input
           value={description}
-          placeholder="Description"
+          placeholder="Enter task description"
           onChange={(e) => setDescription(e.target.value)}
         />
 
         <button onClick={addTask}>Add Task</button>
       </div>
 
-      <h2>My Tasks</h2>
+      <h2 className="task-heading">My Tasks</h2>
 
-      {tasks.map((task) => (
-        <div className="task-card" key={task._id}>
-          <h3>{task.title}</h3>
-          <p>{task.description}</p>
+      <div className="task-list">
+        {tasks.map((task) => (
+          <div className="task-card" key={task._id}>
+            <h3>{task.title}</h3>
+            <p>{task.description}</p>
 
-          <button
-            className="delete-btn"
-            onClick={() => deleteTask(task._id)}
-          >
-            Delete
-          </button>
-        </div>
-      ))}
+            <button
+              className="delete-btn"
+              onClick={() => deleteTask(task._id)}
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default Dashboard;

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,44 +20,53 @@ function Signup() {
 
   const handleSubmit = async () => {
     try {
-      await axios.post("https://fullstack-task-manager-backend.onrender.com/api/auth/signup", form);
-      alert("Signup successful");
-      window.location.href = "/login";
+      await axios.post(
+        "https://fullstack-task-manager-backend.onrender.com/api/auth/signup",
+        form
+      );
+
+      alert("Signup successful!");
+      navigate("/login");
     } catch (error) {
-      alert("Error");
+      alert("User may already exist");
     }
   };
 
   return (
-  <div className="auth-container">
-    <div className="auth-box">
-      <h1>Signup</h1>
+    <div className="auth-container">
+      <div className="auth-box">
+        <h1>Create Account</h1>
+        <p className="subtitle">Sign up to manage your tasks</p>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          onChange={handleChange}
+        />
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          onChange={handleChange}
+        />
 
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
+        <input
+          type="password"
+          name="password"
+          placeholder="Create password"
+          onChange={handleChange}
+        />
 
-      <button onClick={handleSubmit}>Signup</button>
+        <button onClick={handleSubmit}>Signup</button>
+
+        <p className="switch-text">
+          Already have an account? <a href="/login">Login</a>
+        </p>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default Signup;

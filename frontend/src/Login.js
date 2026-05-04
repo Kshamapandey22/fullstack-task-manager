@@ -25,45 +25,41 @@ function Login() {
       );
 
       localStorage.setItem("token", res.data.token);
-
-      alert("Login successful");
-
+      alert("Login successful!");
       navigate("/dashboard");
     } catch (error) {
-      alert("Login failed");
+      alert("Invalid credentials");
     }
   };
 
- return (
-  <div className="auth-container">
-    <div className="auth-box">
-      <h1>Signup</h1>
+  return (
+    <div className="auth-container">
+      <div className="auth-box">
+        <h1>Login</h1>
+        <p className="subtitle">Welcome back!</p>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        onChange={handleChange}
-      />
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          onChange={handleChange}
+        />
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          onChange={handleChange}
+        />
 
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
+        <button onClick={handleSubmit}>Login</button>
 
-      <button onClick={handleSubmit}>Signup</button>
+        <p className="switch-text">
+          New user? <a href="/">Signup</a>
+        </p>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default Login;
